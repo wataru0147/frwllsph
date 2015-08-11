@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  keywords: MyString
+  city: MyString
+  min_rental_fee: 9.99
+  max_rental_fee: 9.99
+  min_contract_term: 1
+  max_contract_term: 1
+  min_deposit_pay: 1
+  max_deposit_pay: 1
+  min_advance_pay: 1
+  max_advance_pay: 1
+
+two:
+  keywords: MyString
+  city: MyString
+  min_rental_fee: 9.99
+  max_rental_fee: 9.99
+  min_contract_term: 1
+  max_contract_term: 1
+  min_deposit_pay: 1
+  max_deposit_pay: 1
+  min_advance_pay: 1
+  max_advance_pay: 1

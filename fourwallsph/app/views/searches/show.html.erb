@@ -1,0 +1,24 @@
+<% provide(:title, "Advanced Search Results") %>
+<div class="container">
+	<h2>Search Results</h2>
+		<p><%= link_to 'Back', new_search_path %></p>
+	<% if @search.search_posts.empty? %>
+		<p>No Results Found</p>
+	<% else %>	
+		<div class="container">
+  <div class="transitions-enabled" id="posts">
+    <% @search.search_posts.each do |post| %>
+      <div class="box panel panel-default">
+   			 <%= link_to (image_tag post.post_image.url), post%>
+          <div class="panel-body">
+            <h2>
+             <%= link_to post.title, post  %>
+            </h2>
+         </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+			<%end %>
+
+</div>

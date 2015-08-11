@@ -1,0 +1,21 @@
+<% provide(:title, "Advanced Search") %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+		<h2>Custom Search</h2>
+			<%= simple_form_for @search do |f| %>
+				<%= f.input :keywords, label: "Keywords" , placeholder: "Title Keywords"%>
+				<%= f.collection_select :city_id,  City.all, :id, :name, {prompt: "Select City"},  {class: "form-control"} %>
+				<%= f.input :min_rental_fee, label: "Minimum Rental Fee", placeholder: "Php"  %>
+				<%= f.input :max_rental_fee, label: "Maximum Rental Fee", placeholder: "Php" %>
+				<%= f.input :min_contract_term, label: "Minimum Contract Term (in months)"  %>
+				<%= f.input :max_contract_term, label: "Maximum Contract Term (in months)" %>
+				<%= f.input :min_deposit_pay, label: "Minimum months of deposit"  %>
+				<%= f.input :max_deposit_pay, label: "Maximum months of deposit"  %>
+				<%= f.input :min_advance_pay, label: "Minimum months of advance payment" %>
+				<%= f.input :max_advance_pay, label: "Maximum months of advance payment"  %>
+				<%= f.button :submit, "Search" %>
+			<% end %>
+		</div>
+	</div>
+</div>

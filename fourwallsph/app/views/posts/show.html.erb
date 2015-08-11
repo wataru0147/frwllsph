@@ -1,0 +1,51 @@
+<% provide(:title, @post.title) %>
+<div class="row" id="post_show">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading pin-image">
+		<%= image_tag( @post.post_image.url)%>
+		<%= image_tag( @post.post_image_opt1.url) if @post.post_image_opt1.present?%>
+		<%= image_tag( @post.post_image_opt2.url)  if @post.post_image_opt2.present?%>
+		<%= image_tag( @post.post_image_opt3.url)  if @post.post_image_opt3.present?%>
+	  </div>
+	  <div class="panel-body">
+		<h1> <%= @post.title %> </h1>
+		<h6> <strong> Location:	</strong>		 		     <%= @post.city.name%> </h6>
+		<h6> <strong> Exact Address:</strong>		 		 <%= @post.address%> </h6>
+		<h6> <strong> Rental/Monthly Fee	:</strong> Php	 <%= @post.rental_fee %></h6>
+		<h6> <strong> Contact Number	: </strong>+63 		 <%= @post.contact_number%></h6>
+		<h6> <strong> Lease/Rent Contract Term: </strong> 	 <%= @post.contract_term %> 
+															 <% if @post.contract_term!=1 %> months
+															 <% else %> month <% end %> contract
+															 <%= @post.deposit_pay %> 
+															 <% if @post.deposit_pay!=1 %> months
+															 <% else %> month <% end %> deposit
+															 <%= @post.advance_pay %>
+															 <% if @post.advance_pay!=1 %> months
+															 <% else %> month <% end %> advance
+															</h6>
+		
+		<h6> <strong> Description: </strong> 				 <%= @post.description %></h6>
+	  </div>
+	  <div class="panel-footer">
+		  <div class="row">
+		 	 <div class="col-md-6">
+		 	 <p class="user">
+				<h6> <strong> Submitted by: </strong> 		 <%= @post.user.email %></h6>
+				<h6> <strong> Posted on 	</strong>		 <%= @post.created_at.strftime ('%b, %d, %Y') %> </h6>
+			     </p>
+		 </div>
+      </div>
+      		<!-- <div class="col-md-6"> -->
+			<%= link_to "Back", root_path, class: "btn btn-default" %>
+			<%  if user_signed_in? && current_user.email == @post.user.email %>
+				<%= link_to "Edit", edit_post_path, class: "btn btn-default" %>
+				<%= link_to "Delete", post_path, class: "btn btn-default", method: :delete, data: {confirm: "Are you sure?"}							%>
+	  </div>
+			<% else %>
+	</div>
+			<%end%>
+        
+      </div>
+    </div>
+  </div>
